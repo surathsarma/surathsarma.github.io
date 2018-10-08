@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <base target="_top">
+  </head>
+  <body style="background-color: #F0F0E1;text-align:center;font:Arial">
+
+<h1>Comparative Vcpm Calculator</h1>
+Please enter your client name (<i style = "size:10"> <b>as instructed in Data Studio</b> </i>): <input type="text" id = "client_input"><br>
+<i style = "color:green" >We shall not store any of the individual competitor values </i> <br>
+<b> Note : Please enter only numeric values without percentage signs. Non numeric values shall be ignored </b>
+
+<table style="height: 300px;width: 100%" width="495">
+
+<tr>
+<td style="width: 239.5px;">Enter Google CPM</td> 
+<td style="width: 239.5px; border-right: 5px solid red"><input type = "text" id = "google_cpm"></td>
+<td style="width: 239.5px;">Enter competitor CPM</td> 
+<td style="width: 239.5px;"><input type = "text" id = "competitor_cpm"></td>
+</tr>
+<tr>
+<td style="width: 239.5px;">Enter any discount(%)</td> 
+<td style="width: 239.5px; border-right: 5px solid red"><input type = "text" id = "google_discount"></td>
+<td style="width: 239.5px;">Enter competitor discount(%)</td> 
+<td style="width: 239.5px;"><input type = "text" id = "competitor_discount"></td>
+</tr>
+<tr>
+<td style="width: 239.5px;">Viewability (%) </td> 
+<td style="width: 239.5px; border-right: 5px solid red"><input type = "text" id = "google_viewability"></td>
+<td style="width: 239.5px;">Viewability (%)</td> 
+<td style="width: 239.5px;"><input type = "text" id = "competitor_viewability"></td>
+</tr>
+<tr>
+<td style="width: 239.5px;">On Target Delivery (%) <i style = "size:5"> For 100%, enter 100</i></td> 
+<td style="width: 239.5px; border-right: 5px solid red"><input type = "text" id = "google_delivery"> </td>
+<td style="width: 239.5px;">On Target Delivery (%) </td> 
+<td style="width: 239.5px;"><input type = "text" id = "competitor_delivery"> </td>
+</tr>
+</table>
+<label id = "finalval" style = "display:none"></label>
+<label id = "clientflag" style = "display:none"></label>
+<p><input type = "submit" value = "Submit to Check the Results" onClick = "insert()"> 
+
+<script>
+function insert()
+    {
+      var client = document.getElementById("client_input").value;   
+      var google_number = (document.getElementById("google_cpm").value || 0) * 
+      (1 - (document.getElementById("google_discount").value/100 || 0))
+      /(document.getElementById("google_viewability").value/100 || 0)
+      /(document.getElementById("google_delivery").value/100 || 0)
+      console.log(document.getElementById("google_cpm").value);
+      
+      var competitor_number = (document.getElementById("competitor_cpm").value || 0) * 
+      (1 - (document.getElementById("competitor_discount").value/100 || 0))
+      /(document.getElementById("competitor_viewability").value/100 || 0)
+      /(document.getElementById("competitor_delivery").value/100 || 0)
+      var ratio = competitor_number/google_number
+      ratio = parseFloat(ratio.toFixed(1));
+      console.log(ratio);
+      document.getElementById("finalval").innerHTML = "Spending <b style = 'size:20'>$1</b> on YouTube is equal to spending <b style = 'size:20'>$" + ratio +
+        "</b> dollars spent on other video platforms for delivering viewable, on-target impressions";
+        document.getElementById("finalval").style.display = "inline";
+      
+    }
+</script>
+</body>
+</html>
