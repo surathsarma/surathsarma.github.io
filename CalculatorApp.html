@@ -14,7 +14,7 @@
 
     <base target="_top">
   </head>
-  <body style="background-color: #F0F0E1;text-align:center;font:Arial">
+  <body style=text-align:center">
 <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
 <style>
 body {
@@ -23,8 +23,9 @@ body {
     </style>
 <h1>Efficiency Calculator</h1>
 <b> Note : Please enter only numeric values without percentage signs. Non numeric values shall be ignored </b>
+Google CPM is <input type = "text" id = "finalval" size="35" background-color = "green"> X more efficient                           
 <table style="height: 300px;width: 100%" width="495">
-<label id = "finalval" style = "display:none"></label>
+
 <tr>
 <td style="width: 239.5px;">Enter Google CPM</td> 
 <td style="width: 239.5px; border-right: 5px solid red"><input type = "text" id = "google_cpm"></td>
@@ -70,9 +71,9 @@ function insert()
       var ratio = competitor_number/google_number
       ratio = parseFloat(ratio.toFixed(1));
       console.log(ratio);
-      document.getElementById("finalval").innerHTML = "Google CPM is <b style = 'size:40'> " + ratio +
-        "</b> X more efficient";
-        document.getElementById("finalval").style.display = "inline";
+      document.getElementById("finalval").value = "<b> <h2> " + ratio +
+  "</b></h2> X more efficient";
+       // document.getElementById("finalval").innertext = "inline";
       
     }
 </script>
