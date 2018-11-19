@@ -27,6 +27,7 @@
 <h1>Efficiency Calculator</h1>
     <p> What you pay vs what is viewed </p>
 <b> Note : Please enter only numeric values without percentage signs. Non numeric values shall be ignored </b>
+<p> Google CPM is <h2> <input style="background-color:green;color:#ffffff;display:none" type = "text" id = "finalval"></h2> times more efficient </p>
 <table style="height: 300px;width: 100%" width="495">
 
 <tr>
@@ -44,17 +45,16 @@
 <tr>
 <td style="width: 150.5px;background-color:red;color:#ffffff">Viewability (%) </td> 
 <td style="width: 70px;color:#ffffff"><input type = "text" id = "google_viewability"></td>
-<td style="width: 150.5px;background-color:blue;color:#ffffff"">Viewability (%)</td> 
+<td style="width: 150.5px;background-color:blue;color:#ffffff">Viewability (%)</td> 
 <td style="width: 70px;color:#ffffff"><input type = "text" id = "competitor_viewability"></td>
 </tr>
 <tr>
-<td style="width: 239.5px;">On Target Delivery (%) <i style = "size:5"> For 100%, enter 100</i></td> 
-<td style="width: 239.5px; border-right: 5px solid red"><input type = "text" id = "google_delivery"> </td>
-<td style="width: 239.5px;">On Target Delivery (%) </td> 
-<td style="width: 239.5px;"><input type = "text" id = "competitor_delivery"> </td>
+<td style="width: 150.5px;background-color:red;color:#ffffff">Viewable CPM</i></td> 
+<td style="width: 239.5px"><input style = "display:none" type = "text" id = "google_vcpm"> </td>
+<td style="width: 150.5px;background-color:blue;color:#ffffff"">Viewable CPM </td> 
+<td style="width: 239.5px;"><input style = "display:none" type = "text" id = "competitor_vcpm"> </td>
 </tr>
 </table>
-<label id = "finalval" style = "display:none"></label>
 <label id = "clientflag" style = "display:none"></label>
 <p><input type = "submit" value = "Submit to Check the Results" onClick = "insert()"> 
 
@@ -62,22 +62,20 @@
 function insert()
     {
       
-      var google_number = (document.getElementById("google_cpm").value || 0) * 
-      (1 - (document.getElementById("google_discount").value/100 || 0))
-      /(document.getElementById("google_viewability").value/100 || 0)
-      /(document.getElementById("google_delivery").value/100 || 0)
-      console.log(document.getElementById("google_cpm").value);
-      
-      var competitor_number = (document.getElementById("competitor_cpm").value || 0) * 
-      (1 - (document.getElementById("competitor_discount").value/100 || 0))
-      /(document.getElementById("competitor_viewability").value/100 || 0)
-      /(document.getElementById("competitor_delivery").value/100 || 0)
+      var google_number = (document.getElementById("google_cpm").value || 0) 
+      / (document.getElementById("google_viewability").value/100 || 0)  ;   
+      document.getElementById("google_vcpm").style.display = "inline" ;
+      document.getElementById("google_vcpm").value = parseFloat(google_number.toFixed(2));
+      var competitor_number = (document.getElementById("competitor_cpm").value || 0) 
+      / (document.getElementById("competitor_viewability").value/100 || 0) ;
+      document.getElementById("competitor_vcpm").style.display = "inline";
+      document.getElementById("competitor_vcpm").value = parseFloat(competitor_number.toFixed(2))
+     
       var ratio = competitor_number/google_number
       ratio = parseFloat(ratio.toFixed(1));
       console.log(ratio);
-      document.getElementById("finalval").innerHTML = "Spending <b style = 'size:20'>$1</b> on YouTube is equal to spending <b style = 'size:20'>$" + ratio +
-        "</b> dollars spent on other video platforms for delivering viewable, on-target impressions";
-        document.getElementById("finalval").style.display = "inline";
+      document.getElementById("finalval").value = ratio;
+      document.getElementById("finalval").style.display = "inline";
       
     }
 </script>
