@@ -8,26 +8,19 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'UA-127637052-1');
 </script>
 
     <base target="_top">
   </head>
-  <body style=text-align:center">
-<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
-<style>
-body {
-    font-family: 'Roboto';font-size: 22px;
-}
-    </style>
-<h1>Efficiency Calculator</h1>
+  <body style="background-color: #F0F0E1;text-align:center;font:Arial">
+
+<h1>Comparative Vcpm Calculator</h1>
 <b> Note : Please enter only numeric values without percentage signs. Non numeric values shall be ignored </b>
-Google CPM is <input type = "text" id = "finalval" size="20" height = "20" style="background-color:green"> X more efficient                           
 <table style="height: 300px;width: 100%" width="495">
 
 <tr>
-<td style="width: 239.5px; style="background-color:red">Enter Google CPM</td> 
+<td style="width: 239.5px;">Enter Google CPM</td> 
 <td style="width: 239.5px; border-right: 5px solid red"><input type = "text" id = "google_cpm"></td>
 <td style="width: 239.5px;">Enter competitor CPM</td> 
 <td style="width: 239.5px;"><input type = "text" id = "competitor_cpm"></td>
@@ -51,6 +44,7 @@ Google CPM is <input type = "text" id = "finalval" size="20" height = "20" style
 <td style="width: 239.5px;"><input type = "text" id = "competitor_delivery"> </td>
 </tr>
 </table>
+<label id = "finalval" style = "display:none"></label>
 <label id = "clientflag" style = "display:none"></label>
 <p><input type = "submit" value = "Submit to Check the Results" onClick = "insert()"> 
 
@@ -71,8 +65,9 @@ function insert()
       var ratio = competitor_number/google_number
       ratio = parseFloat(ratio.toFixed(1));
       console.log(ratio);
-      document.getElementById("finalval").value =  ratio;
-       // document.getElementById("finalval").innertext = "inline";
+      document.getElementById("finalval").innerHTML = "Spending <b style = 'size:20'>$1</b> on YouTube is equal to spending <b style = 'size:20'>$" + ratio +
+        "</b> dollars spent on other video platforms for delivering viewable, on-target impressions";
+        document.getElementById("finalval").style.display = "inline";
       
     }
 </script>
