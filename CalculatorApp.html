@@ -66,12 +66,12 @@ function insert()
       
       var google_number = (document.getElementById("google_cpm").value || 0) 
       / (document.getElementById("google_viewability").value/100 || 0)  ; 
-      document.getElementById("google_vcpm_label").style.display = "inline";
+      document.getElementById("google_vcpm_label").style.display = "TABLE-CELL";
       document.getElementById("google_vcpm").style.display = "inline" ;
       document.getElementById("google_vcpm").value = parseFloat(google_number.toFixed(2));
       var competitor_number = (document.getElementById("competitor_cpm").value || 0) 
       / (document.getElementById("competitor_viewability").value/100 || 0) ;
-      document.getElementById("competitor_vcpm_label").style.display = "inline";
+      document.getElementById("competitor_vcpm_label").style.display = "TABLE-CELL";
       document.getElementById("competitor_vcpm").style.display = "inline";
       document.getElementById("competitor_vcpm").value = parseFloat(competitor_number.toFixed(2))
      
