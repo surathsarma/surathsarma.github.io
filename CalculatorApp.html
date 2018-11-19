@@ -47,9 +47,9 @@
 </tr>
  <tr></tr>
 <tr>
-<td style="display:none;background-color:red;color:#ffffff" >Viewable CPM</i></td> 
+<td style="display:none;background-color:red;color:#ffffff" id = "google_vcpm_label" >Viewable CPM</i></td> 
 <td ><input style = "display:none;height: 50px;border: 5px solid" type = "text" id = "google_vcpm"> </td>
-<td style="display:none;background-color:blue;color:#ffffff">Viewable CPM </td> 
+<td style="display:none;background-color:blue;color:#ffffff" id = "competitor_vcpm_label" >Viewable CPM </td> 
 <td><input style = "display:none;height: 50px;border: 5px solid" type = "text" id = "competitor_vcpm"> </td>
 </tr>
 </table>
@@ -65,11 +65,13 @@ function insert()
     {
       
       var google_number = (document.getElementById("google_cpm").value || 0) 
-      / (document.getElementById("google_viewability").value/100 || 0)  ;   
+      / (document.getElementById("google_viewability").value/100 || 0)  ; 
+      document.getElementById("google_vcpm_label").style.display = "inline";
       document.getElementById("google_vcpm").style.display = "inline" ;
       document.getElementById("google_vcpm").value = parseFloat(google_number.toFixed(2));
       var competitor_number = (document.getElementById("competitor_cpm").value || 0) 
       / (document.getElementById("competitor_viewability").value/100 || 0) ;
+      document.getElementById("competitor_vcpm_label").style.display = "inline";
       document.getElementById("competitor_vcpm").style.display = "inline";
       document.getElementById("competitor_vcpm").value = parseFloat(competitor_number.toFixed(2))
      
