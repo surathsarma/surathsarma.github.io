@@ -27,11 +27,10 @@
 <h1>Efficiency Calculator</h1>
     <p> What you pay Vs what is viewed </p>
 <b> Note : Please enter only numeric values without percentage signs. Non numeric values shall be ignored </b>
-<p> Google CPM is <input style="background-color: rgb(51,174,58);
+<p id = "result_label" style = "display: none"> Google CPM is <input style="background-color: rgb(51,174,58);
     color: rgb(255, 255, 255);
     height: 40px;
-    width: 150px;
-    display: inline;
+    width: 150px;   
     font-size: xx-large;
     text-align: center" type = "text" id = "finalval">
     times more efficient </p>
@@ -85,7 +84,8 @@ function insert()
       ratio = parseFloat(ratio.toFixed(1));
       console.log(ratio);
       document.getElementById("finalval").value = ratio + "X";
-      document.getElementById("finalval").style.display = "inline";
+      document.getElementById("result_label").style.display = "inline";                                                
+      //document.getElementById("finalval").style.display = "inline";
       
     }
 </script>
