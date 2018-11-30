@@ -91,23 +91,22 @@ function insert()
       / (document.getElementById("competitor_viewability").value/100 || 0) ;
       document.getElementById("competitor_vcpm_label").style.display = "TABLE-CELL";
       document.getElementById("competitor_vcpm").style.display = "inline";
-      document.getElementById("competitor_vcpm").value = parseFloat(competitor_number.toFixed(2))
-     
+      document.getElementById("competitor_vcpm").value = parseFloat(competitor_number.toFixed(2));     
       var ratio = competitor_number/google_number;      
-      console.log(ratio);
-      document.getElementById("finalval").value = ratio + "X";
-      document.getElementById("result_label").style.display = "inline";                                                
-      //document.getElementById("finalval").style.display = "inline";
-      var google_voctm = (google_number)/(document.getElementById("google_otp").value ||0);
+      console.log(ratio);     
+      var google_voctm = 100 * (google_number)/(document.getElementById("google_otp").value ||0);
       document.getElementById("google_votcpm_label").style.display = "TABLE-CELL";
       document.getElementById("google_votcpm").style.display = "inline" ;
       document.getElementById("google_votcpm").value = parseFloat(google_voctm.toFixed(2));
-      var competitor_voctm = (competitor_number)/(document.getElementById("competitor_otp").value ||0);
+      var competitor_voctm = 100 * (competitor_number)/(document.getElementById("competitor_otp").value ||0);
       document.getElementById("competitor_votcpm_label").style.display = "TABLE-CELL";
       document.getElementById("competitor_votcpm").style.display = "inline";
       document.getElementById("competitor_votcpm").value = parseFloat(competitor_voctm.toFixed(2))
       ratio = competitor_voctm/google_voctm;
       ratio = parseFloat(ratio.toFixed(1));
+      document.getElementById("finalval").value = ratio + "X";
+      document.getElementById("result_label").style.display = "inline";                                                
+      //document.getElementById("finalval").style.display = "inline";
     }
 </script>
 </body>
