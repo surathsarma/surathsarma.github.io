@@ -51,6 +51,12 @@
 <td style="background-color:rgb(60,120,216);color:#ffffff">Viewability (%)</td> 
 <td style="color:#ffffff"><input style = "height: 50px;border: 5px solid" type = "text" id = "competitor_viewability"></td>
 </tr>
+<tr>
+<td style="background-color:rgb(204,0,0);color:#ffffff">On Target Precision (%) </td> 
+<td style="color:#ffffff"><input style = "height: 50px;border: 5px solid" type = "text" value = "70" id = "google_otp"></td>
+<td style="background-color:rgb(60,120,216);color:#ffffff">Viewability (%)</td> 
+<td style="color:#ffffff"><input style = "height: 50px;border: 5px solid" type = "text" value = "60" id = "competitor_otp"></td>
+</tr>                                                                                                                 
  <tr></tr>
 <tr>
 <td style="display:none;background-color:rgb(204,0,0);color:#ffffff" id = "google_vcpm_label" >Viewable CPM</i></td> 
@@ -87,7 +93,9 @@ function insert()
       document.getElementById("finalval").value = ratio + "X";
       document.getElementById("result_label").style.display = "inline";                                                
       //document.getElementById("finalval").style.display = "inline";
-      
+      var google_voctm = (google_number)/(document.getElementById("google_otp").value ||0);
+      var competitor_voctm = (competitor_number)/(document.getElementById("competitor_otp").value ||0);
+      ratio = competitor_voctm/google_voctm;
     }
 </script>
 </body>
