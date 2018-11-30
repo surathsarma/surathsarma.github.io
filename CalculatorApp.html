@@ -64,6 +64,12 @@
 <td style="display:none;background-color:rgb(60,120,216);color:#ffffff" id = "competitor_vcpm_label" >Viewable CPM </td> 
 <td><input style = "display:none;height: 50px;border: 5px solid" type = "text" id = "competitor_vcpm"> </td>
 </tr>
+<tr>
+<td style="display:none;background-color:rgb(204,0,0);color:#ffffff" id = "google_votcpm_label" >Viewable CPM</i></td> 
+<td ><input style = "display:none;height: 50px;border: 5px solid" type = "text" id = "google_votcpm"> </td>
+<td style="display:none;background-color:rgb(60,120,216);color:#ffffff" id = "competitor_vcpm_label" >Viewable CPM </td> 
+<td><input style = "display:none;height: 50px;border: 5px solid" type = "text" id = "competitor_votcpm"> </td>
+</tr>
 </table>
 <label id = "clientflag" style = "display:none"></label>
 <p><input style = "font-weight: bold;
@@ -87,15 +93,21 @@ function insert()
       document.getElementById("competitor_vcpm").style.display = "inline";
       document.getElementById("competitor_vcpm").value = parseFloat(competitor_number.toFixed(2))
      
-      var ratio = competitor_number/google_number
-      ratio = parseFloat(ratio.toFixed(1));
+      var ratio = competitor_number/google_number;      
       console.log(ratio);
       document.getElementById("finalval").value = ratio + "X";
       document.getElementById("result_label").style.display = "inline";                                                
       //document.getElementById("finalval").style.display = "inline";
       var google_voctm = (google_number)/(document.getElementById("google_otp").value ||0);
+      document.getElementById("google_votcpm_label").style.display = "TABLE-CELL";
+      document.getElementById("google_votcpm").style.display = "inline" ;
+      document.getElementById("google_votcpm").value = parseFloat(google_voctm.toFixed(2));
       var competitor_voctm = (competitor_number)/(document.getElementById("competitor_otp").value ||0);
+      document.getElementById("competitor_votcpm_label").style.display = "TABLE-CELL";
+      document.getElementById("competitor_votcpm").style.display = "inline";
+      document.getElementById("competitor_votcpm").value = parseFloat(competitor_voctm.toFixed(2))
       ratio = competitor_voctm/google_voctm;
+      ratio = parseFloat(ratio.toFixed(1));
     }
 </script>
 </body>
