@@ -8,9 +8,17 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-  gtag('config', 'UA-127637052-1');
-  gtag('config', 'UA-143435292-1');
+  gtag('config', 'UA-127637052-1');  
+  gtag('config', 'UA-143435292-1', {
+  'custom_map': {'dimension1': 'cid'}
+});
+ 
 </script>
+<script>
+  var tracker = ga.getAll()[1];
+var cid = tracker.get('clientId');
+  gtag('event', 'send_cid', {'cid':cid});
+    </script>
 
     <base target="_top">
      <link href='https://fonts.gstatic.com/s/roboto/v18/KFOmCnqEu92Fr1Mu72xKOzY.woff2' rel='stylesheet' type='text/css'>
