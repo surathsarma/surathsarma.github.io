@@ -13,11 +13,6 @@
 });
  
 </script>
-<script>  
-var cid = ga.getAll()[0].get('clientId');
-  gtag('event', 'send_cid', {'cid':cid});
-  console.log(cid);
-</script>
 
     <base target="_top">
      <link href='https://fonts.gstatic.com/s/roboto/v18/KFOmCnqEu92Fr1Mu72xKOzY.woff2' rel='stylesheet' type='text/css'>
@@ -95,8 +90,13 @@ var cid = ga.getAll()[0].get('clientId');
     font: bold;
     background-color: rgb(51,174,58);
     font-style: italic" type = "submit" value = "Run Results" onClick = "insert()"> 
-
+<script>  
+var cid = ga.getAll()[0].get('clientId');
+  gtag('event', 'send_cid', {'cid':cid});
+  console.log(cid);
+</script>   
 <script>
+                                                                             
 function insert()
     {
       
