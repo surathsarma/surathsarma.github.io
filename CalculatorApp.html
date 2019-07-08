@@ -14,7 +14,7 @@
  
 </script>
 <script>
-  var tracker = ga.getAll()[1];
+  var tracker = ga.getAll()[0];
 var cid = tracker.get('clientId');
   gtag('event', 'send_cid', {'cid':cid});
   console.log(cid);
