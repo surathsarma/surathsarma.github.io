@@ -98,11 +98,13 @@
     font: bold;
     background-color: rgb(51,174,58);
     font-style: italic" type = "submit" value = "Run Results" onClick = "insert()"> 
-<script>
-ga('create', 'UA-143435292-1', 'auto');                                                                                 
-var cid = ga.getAll()[0].get('clientId');
-gtag('event', 'send_cid', {'cid':cid});
-console.log(cid);                                                                              
+ <script>
+  ga(function(tracker) {
+  var clientId = tracker.get('clientId');
+  console.log(clientId);
+}); 
+ </script>
+<script>                                                                         
 function insert()
     {
       
