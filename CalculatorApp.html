@@ -90,11 +90,6 @@
     font: bold;
     background-color: rgb(51,174,58);
     font-style: italic" type = "submit" value = "Run Results" onClick = "insert()"> 
-<script>  
-var cid = ga.getAll()[0].get('clientId');
-  gtag('event', 'send_cid', {'cid':cid});
-  console.log(cid);
-</script>   
 <script>
                                                                              
 function insert()
@@ -126,6 +121,10 @@ function insert()
       document.getElementById("result_label").style.display = "inline";                                                
       //document.getElementById("finalval").style.display = "inline";
     }
+ 
+  var cid = ga.getAll()[0].get('clientId');
+  gtag('event', 'send_cid', {'cid':cid});
+  console.log(cid);                                                                    
 </script>
 </body>
 </html>
